@@ -3,25 +3,27 @@
 
 /* run this program using the console pauser or add your own getch, system("pause") or input loop */
 
-int main(int argc, char *argv[])
+
+//#1
+
+void main(void)
 {
+	char *pc = NULL;
+	int i = 0;
 	
-	//예제
-	
-	int *score;
-	int i;
-	
-	score = (int*) malloc (100 * sizeof (int));
-	
-	if (score = NULL)
+	pc = (char *)malloc(100*sizeof(char));
+	if (pc == NULL)
 	{
-		printf("malloc failed!\n");
-		return 0;
+		printf("메모리 할당 오류");
+		exit(1);
 	}
 	
-	for (i=0; i<100; i++)
-		score[i] = 0;
-		
-	system("PAUSE");
-	return 0;
+	for (i=0; i<26; i++)
+	{
+		pc[i] = 'a' + 1;
+	}
+	
+	pc[i] = 0;
+	printf("%s\n", pc);
+	free(pc);
 }
