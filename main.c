@@ -29,7 +29,18 @@ void main(void) {
 	printf("book (1,3): %i, %s\n", (bookshelf[1]+3)->number, (bookshelf[1]+3)->title);
 	printf("book (2,4): %i, %s\n", bookshelf[2][4].number, bookshelf[2][4].title);
 	
+	//구조체 포인터 3개가 각각 가리키는 주소를 해제시킴 
 	for(i=0;i<3;i++)
 		free(bookshelf[i]);
+		
+	//구조체 2중 포인터가 가리키는 주소를 해제시킴 
 	free(bookshelf);
 }
+
+//result
+
+/*
+book (1,3): 5, C++ programming
+book (2,4): 3, Communications Theory
+*/
+
