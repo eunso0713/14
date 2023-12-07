@@ -4,23 +4,31 @@
 /* run this program using the console pauser or add your own getch, system("pause") or input loop */
 
 
-//#1
+//#2
 
-int main (int argc, char *argv[]){
-	char *pc = NULL;
-	int i=0;
+struct Book{
+	int number;
+	char title[10];
 	
-	pc=(char*)malloc (100*sizeof(char));
+};
+
+void main (void){
+	struct Book *p;
 	
-	for(i=0;i<26;i++)
+	p= (struct Book*)malloc(2*sizeof (struct Book));
+	
+	if (p==NULL)
 	{
-		pc[i] = 'a'+i;
+		printf("메모리 할당 오류\n");
+		return;
 	}
 	
-	pc[i] = 0;
-	printf("%s\n", pc);
+	p->number = 1;
+	strcpy(p->title, "C programming");
 	
-	free(pc);
+	(p+1)->number = 2;
+	strcpy((p+1)->title, "Electronics");
 	
-	return 0;
+	free(p);
+	return;
 }
